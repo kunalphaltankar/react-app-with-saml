@@ -8,6 +8,10 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [email, setEmail] = useState<string>('');
 
+    const RedirectToLogin = () => {
+        window.location.replace('https://localhost:1337/login');
+    };
+
     useEffect(() => {
         logging.info('Initiating SAML check.', 'SAML');
 
@@ -31,10 +35,6 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
                 RedirectToLogin();
             });
     }, []);
-
-    const RedirectToLogin = () => {
-        window.location.replace('https://localhost:1337/login');
-    };
 
     if (loading) return <p>loading ...</p>;
 

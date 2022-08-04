@@ -24,4 +24,4 @@ yarn-error.log*
 
 package-lock.json
 *.pem
-secret.config.ts
+secret.ts

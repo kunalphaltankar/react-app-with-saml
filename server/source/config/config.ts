@@ -1,8 +1,10 @@
+import secret from './secret';
+
 const config = {
     saml: {
-        entryPoint: '', // SAML request URL
-        cert: '', // IDP public certificate
-        issuer: '', // Entity Id
+        entryPoint: secret.saml.entryPoint, // SAML request URL
+        cert: secret.saml.cert, // IDP public certificate
+        issuer: secret.saml.issuer, // Entity Id
         options: {
             failureRedirect: '/login',
             failureFlash: true
