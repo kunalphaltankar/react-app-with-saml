@@ -1,15 +1,22 @@
-import http from 'http';
+import https from 'https';
 import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import logging from './config/logging';
 import config from './config/config';
 import './config/passport';
+import fs from 'fs';
 
 const router = express();
 
+const options = {
+    key: fs.readFileSync('C:/Workspace/POCs/React-SAML-Auth/server/source/config/localhost-key.pem'),
+    cert: fs.readFileSync('C:/Workspace/POCs/React-SAML-Auth/server/source/config/localhost.pem')
+};
+
 /** Server Handling */
-const httpServer = http.createServer(router);
+const httpServer = https.createServer(options, router);
+// const httpServer = http.createServer(router);
 
 /** Log the request */
 router.use((req, res, next) => {

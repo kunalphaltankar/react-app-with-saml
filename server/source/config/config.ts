@@ -1,8 +1,8 @@
 const config = {
     saml: {
-        cert: './source/config/saml.pem',
-        entryPoint: '',
-        issuer: 'http://localhost:1337',
+        entryPoint: '', // SAML request URL
+        cert: '', // IDP public certificate
+        issuer: '', // Entity Id
         options: {
             failureRedirect: '/login',
             failureFlash: true
